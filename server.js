@@ -1,6 +1,7 @@
 var express = require("express");
 
 var PORT = process.env.PORT || 8080;
+const db = require("./models");
 
 var app = express();
 
