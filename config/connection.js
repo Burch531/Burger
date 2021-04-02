@@ -1,12 +1,28 @@
 var mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 8080,
-  user: "root",
-  password: "JRobert202",
-  database: "burger_db"
-});
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   port: 3000,
+//   user: "root",
+//   password: "JRobert202",
+//   database: "burger_db"
+// });
+var connection;
+
+if (process.env.JAWSDB_URL)
+{
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else
+{
+	connection = mysql.createConnection(
+	{
+		host: 'localhost',
+		user: 'root',
+		password: 'JRobert202',
+		database: 'burger_db'
+	});
+};
 
 // Make connection.
 connection.connect(function(err) {
